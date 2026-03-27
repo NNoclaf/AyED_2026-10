@@ -1,0 +1,5 @@
+c:\users\alumno.et37\documents\visual studio 2015\Projects\Calculo de edad - Falcon Nahuel\Calculo de edad - Falcon Nahuel\bin\Debug\Calculo de edad - Falcon Nahuel.exe.config
+c:\users\alumno.et37\documents\visual studio 2015\Projects\Calculo de edad - Falcon Nahuel\Calculo de edad - Falcon Nahuel\bin\Debug\Calculo de edad - Falcon Nahuel.exe
+c:\users\alumno.et37\documents\visual studio 2015\Projects\Calculo de edad - Falcon Nahuel\Calculo de edad - Falcon Nahuel\bin\Debug\Calculo de edad - Falcon Nahuel.pdb
+c:\users\alumno.et37\documents\visual studio 2015\Projects\Calculo de edad - Falcon Nahuel\Calculo de edad - Falcon Nahuel\obj\Debug\Calculo de edad - Falcon Nahuel.exe
+c:\users\alumno.et37\documents\visual studio 2015\Projects\Calculo de edad - Falcon Nahuel\Calculo de edad - Falcon Nahuel\obj\Debug\Calculo de edad - Falcon Nahuel.pdb
