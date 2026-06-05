@@ -1,70 +1,40 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ejerc1
+namespace ejer4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int saldo = 10000;
-            int opci = 0;
+            string usuarioCorrecto = "admin";
+            string contraCorrecta = "1234";
 
-            while (opci != 4)
+            int intentos = 0;
+
+            while (intentos < 3)
             {
-                Console.WriteLine("1. Depositar dinero");
-                Console.WriteLine("2. Retirar dinero");
-                Console.WriteLine("3. Ver saldo actual");
-                Console.WriteLine("4. Salir");
+                Console.Write("Ingrese su usuario: ");
+                string usuario = Console.ReadLine();
 
-                Console.Write("Ingrese una de las opciones: ");
-                opci = int.Parse(Console.ReadLine());
+                Console.Write("Ingrese su contraseña: ");
+                string contraseña = Console.ReadLine();
 
-                switch (opci)
+                if (usuario == usuarioCorrecto && contraseña == contraCorrecta)
                 {
-                    case 1:
-
-                        Console.Write("Ingrese el dinero que va a depositar: ");
-                        int deposito = int.Parse(Console.ReadLine());
-
-                        saldo = saldo + deposito;
-
-                        Console.WriteLine("Saldo actual: $" + saldo);
-
-                        break;
-
-                    case 2:
-
-                        Console.Write("Ingrese el dinero que va a retirar: ");
-                        int retiro = int.Parse(Console.ReadLine());
-
-                        saldo = saldo - retiro;
-
-                        Console.WriteLine("Saldo actual: $" + saldo);
-
-                        break;
-
-                    case 3:
-
-                        Console.WriteLine("Su saldo actual es: $" + saldo);
-
-                        break;
-
-                    case 4:
-
-                        Console.WriteLine("Saliendo del cajero");
-
-                        break;
-
-                    default:
-
-                        Console.WriteLine("Opción invalida");
-
-                        break;
+                    Console.WriteLine("Bienvenido al sistema");
+                    break;
                 }
+
+                intentos++;
+            }
+
+            if (intentos == 3)
+            {
+                Console.WriteLine("Cuenta bloqueada por seguridad");
             }
         }
     }
