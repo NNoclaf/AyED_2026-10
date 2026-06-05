@@ -4,68 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ejerc1
+namespace ejer3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int saldo = 10000;
-            int opci = 0;
+            int totalRecaudado = 0;
+            int cantidadVentas = 0;
+            int ventaMayor = 0;
 
-            while (opci != 4)
+            string respuesta = "S";
+
+            while (respuesta == "S")
             {
-                Console.WriteLine("1. Depositar dinero");
-                Console.WriteLine("2. Retirar dinero");
-                Console.WriteLine("3. Ver saldo actual");
-                Console.WriteLine("4. Salir");
+                Console.Write("Ingrese el precio de la venta: ");
+                int venta = int.Parse(Console.ReadLine());
 
-                Console.Write("Ingrese una de las opciones: ");
-                opci = int.Parse(Console.ReadLine());
+                totalRecaudado = totalRecaudado + venta;
 
-                switch (opci)
+                cantidadVentas++;
+
+                if (venta > ventaMayor)
                 {
-                    case 1:
-
-                        Console.Write("Ingrese el dinero que va a depositar: ");
-                        int deposito = int.Parse(Console.ReadLine());
-
-                        saldo = saldo + deposito;
-
-                        Console.WriteLine("Saldo actual: $" + saldo);
-
-                        break;
-
-                    case 2:
-
-                        Console.Write("Ingrese el dinero que va a retirar: ");
-                        int retiro = int.Parse(Console.ReadLine());
-
-                        saldo = saldo - retiro;
-
-                        Console.WriteLine("Saldo actual: $" + saldo);
-
-                        break;
-
-                    case 3:
-
-                        Console.WriteLine("Su saldo actual es: $" + saldo);
-
-                        break;
-
-                    case 4:
-
-                        Console.WriteLine("Saliendo del cajero");
-
-                        break;
-
-                    default:
-
-                        Console.WriteLine("Opción invalida");
-
-                        break;
+                    ventaMayor = venta;
                 }
+
+                Console.Write("Desea continuar ingresando mas ventas? (S/N): ");
+                respuesta = Console.ReadLine();
             }
+
+            Console.WriteLine("Total que se recaudo: $" + totalRecaudado);
+            Console.WriteLine("Cantidad total de ventas que se realizo: " + cantidadVentas);
+            Console.WriteLine("Monto de la venta mas alta que se registro: $" + ventaMayor);
         }
     }
 }
