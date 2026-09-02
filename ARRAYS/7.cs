@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +6,40 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication5
 {
-    class Program
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            int producto = 0;
-            int[] precio = new int[8];
+        int[] tiempos = new int[6];
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                Console.Write("escriba cuanto vale el producto: ");
-                precio[i] = int.Parse(Console.ReadLine());
-            }
-            Console.Write("ponga cuanto dinero hay: ");
-            int dinero = int.Parse(Console.ReadLine());
+for (int i = 0; i < tiempos.Length; i++)
+{
+Console.Write("ponga el tiempo del corredor: ");
+tiempos[i] = int.Parse(Console.ReadLine());
+}
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                if (precio[i]<= dinero)
-                {
-                    producto++;
-                }
-            }
-            Console.WriteLine("se puede comprar " + producto + " productos");
-        }
+int menor = tiempos[0];
+int mayor = tiempos[0];
+int posicionmenor = 0;
+int posicionmayor = 0;
+
+for (int i = 0; i < tiempos.Length; i++)
+{
+if (tiempos[i] < menor)
+{
+    menor = tiempos[i];
+    posicionmenor = i;
+}
+
+if (tiempos[i] > mayor)
+{
+    mayor = tiempos[i];
+    posicionmayor = i;
+}
+}
+
+Console.WriteLine("gana el corredor N°" + (posicionmenor + 1) + " con " + menor + " segundos");
+Console.WriteLine("peor tiempo tuvo el corredor N°" + (posicionmayor + 1) + " con " + mayor + " segundos");
     }
+}
 }
