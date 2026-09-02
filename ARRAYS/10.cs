@@ -4,31 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication5
+namespace ConsoleApplication11
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int producto = 0;
-            int[] precio = new int[8];
+            int menores = 0;
+            int mayores = 0;
+            int intermedios = 0;
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                Console.Write("escriba cuanto vale el producto: ");
-                precio[i] = int.Parse(Console.ReadLine());
-            }
-            Console.Write("ponga cuanto dinero hay: ");
-            int dinero = int.Parse(Console.ReadLine());
+int[] edades = new int[12];
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                if (precio[i]<= dinero)
-                {
-                    producto++;
-                }
-            }
-            Console.WriteLine("se puede comprar " + producto + " productos");
+for (int i = 0; i < edades.Length; i++)
+{
+    Console.Write("ponga edad del vecino: ");
+    edades[i] = int.Parse(Console.ReadLine());
+
+    if (edades[i] < 18)
+    {
+        menores++;
+    }
+    else if (edades[i] >= 65)
+    {
+        mayores++;
+    }
+    else
+    {
+        intermedios++;
+    }
+}
+
+Console.WriteLine("de menores hay: " + menores);
+Console.WriteLine("de adultos mayores hay: " + mayores);
+Console.WriteLine("del rango intermedio hay: " + intermedios);
         }
     }
 }
