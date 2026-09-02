@@ -15,16 +15,16 @@ int[] numeros = new int[15];
 
 for (int i = 0; i < numeros.Length; i++)
 {
-    Console.Write("Ingrese un numero vendido: ");
+    Console.Write("ponga un numero: ");
     numeros[i] = int.Parse(Console.ReadLine());
 }
 
-Console.Write("Ingrese el numero que quiere buscar: ");
-int numeroBuscado = int.Parse(Console.ReadLine());
+Console.Write("ponga el numero q busca: ");
+int buscado = int.Parse(Console.ReadLine());
 
 for (int i = 0; i < numeros.Length; i++)
 {
-    if (numeros[i] == numeroBuscado)
+    if (numeros[i] == buscado)
     {
         encontrado++;
     }
@@ -32,11 +32,11 @@ for (int i = 0; i < numeros.Length; i++)
 
 if (encontrado > 0)
 {
-    Console.WriteLine("El numero fue vendido");
+    Console.WriteLine("el numero fue vendido");
 }
 else
 {
-    Console.WriteLine("El numero esta disponible");
+    Console.WriteLine("el numero sigue disponible");
 }
         }
     }
