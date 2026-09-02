@@ -4,31 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication5
+namespace ConsoleApplication10
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int producto = 0;
-            int[] precio = new int[8];
+            int total = 0;
+int posicion = 0;
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                Console.Write("escriba cuanto vale el producto: ");
-                precio[i] = int.Parse(Console.ReadLine());
-            }
-            Console.Write("ponga cuanto dinero hay: ");
-            int dinero = int.Parse(Console.ReadLine());
+int[] precios = new int[10];
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                if (precio[i]<= dinero)
-                {
-                    producto++;
-                }
-            }
-            Console.WriteLine("se puede comprar " + producto + " productos");
+for (int i = 0; i < precios.Length; i++)
+{
+    Console.Write("ponga el precio del producto: ");
+    precios[i] = int.Parse(Console.ReadLine());
+
+    total = total + precios[i];
+}
+
+Console.Write("ponga posicion del producto que quiere devolver: ");
+posicion = int.Parse(Console.ReadLine());
+
+int devolucion = precios[posicion - 1];
+
+Console.WriteLine("el precio del producto es: " + devolucion);
+
+total = total - devolucion;
+
+Console.WriteLine("el nuevo total es: " + total);
         }
     }
 }
