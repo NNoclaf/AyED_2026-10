@@ -10,25 +10,34 @@ namespace ConsoleApplication5
     {
         static void Main(string[] args)
         {
-            int producto = 0;
-            int[] precio = new int[8];
+           int encontrado = 0;
+int[] numeros = new int[15];
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                Console.Write("escriba cuanto vale el producto: ");
-                precio[i] = int.Parse(Console.ReadLine());
-            }
-            Console.Write("ponga cuanto dinero hay: ");
-            int dinero = int.Parse(Console.ReadLine());
+for (int i = 0; i < numeros.Length; i++)
+{
+    Console.Write("Ingrese un numero vendido: ");
+    numeros[i] = int.Parse(Console.ReadLine());
+}
 
-            for (int i =0; i < precio.Length; i++)
-            {
-                if (precio[i]<= dinero)
-                {
-                    producto++;
-                }
-            }
-            Console.WriteLine("se puede comprar " + producto + " productos");
+Console.Write("Ingrese el numero que quiere buscar: ");
+int numeroBuscado = int.Parse(Console.ReadLine());
+
+for (int i = 0; i < numeros.Length; i++)
+{
+    if (numeros[i] == numeroBuscado)
+    {
+        encontrado++;
+    }
+}
+
+if (encontrado > 0)
+{
+    Console.WriteLine("El numero fue vendido");
+}
+else
+{
+    Console.WriteLine("El numero esta disponible");
+}
         }
     }
 }
