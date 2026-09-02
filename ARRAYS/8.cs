@@ -10,7 +10,7 @@ namespace ConsoleApplication9
     {
         static void Main(string[] args)
         {
-            int uno = 0;
+int uno = 0;
 int dos = 0;
 int tres = 0;
 int cuatro = 0;
