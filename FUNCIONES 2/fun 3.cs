@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,63 +8,108 @@ namespace ConsoleApplication1
 {
 class Program
 {
-    static void Main(string[] args)
+static void Main(string[] args)
+{
+int numero1;
+    int numero2;
+
+    Console.Write("ponga el primer numero: ");
+    numero1 = int.Parse(Console.ReadLine());
+
+    Console.Write("ponga el segundo numero: ");
+    numero2 = int.Parse(Console.ReadLine());
+
+    MostrarNumeros(numero1, numero2);
+
+    Console.WriteLine("la cantidad de pares es: " + ContarPares(numero1, numero2));
+    Console.WriteLine("la cantidad de impares es: " + ContarImpares(numero1, numero2));
+    Console.WriteLine("toda la suma de los valores da: " + SumarNumeros(numero1, numero2));
+}
+
+static void MostrarNumeros(int numero1, int numero2)
+{
+    int menor = numero1;
+    int mayor = numero2;
+
+    if (numero2 < numero1)
     {
-        Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
-
+        menor = numero2;
+        mayor = numero1;
     }
-        static void mostrar(int cantida)
+
+    for (int i = menor; i <= mayor; i++)
+    {
+        Console.WriteLine(i);
+    }
+}
+
+static int Pares(int numero1, int numero2)
+{
+    int cantidad = 0;
+    int menor = numero1;
+    int mayor = numero2;
+
+    if (numero2 < numero1)
+    {
+        menor = numero2;
+        mayor = numero1;
+    }
+
+    for (int i = menor; i <= mayor; i++)
+    {
+        if (i % 2 == 0)
         {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
+            cantidad++;
+        }
+    }
 
-            for (int i = 1; i < cantida; i++)
+    return cantidad;
+}
 
-            {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
+static int Impares(int numero1, int numero2)
+{
+    int cantidad = 0;
+    int menor = numero1;
+    int mayor = numero2;
 
-                if (i == 1)
-                {
-                    mayor = numero;
-                    menor = numero;
-                }
-                if (numero > mayor)
-                {
-                    mayor = numero;
-                }
-                if (numero < menor)
-                {
-                    menor = numero;
-                }
-             
+    if (numero2 < numero1)
+    {
+        menor = numero2;
+        mayor = numero1;
+    }
 
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
-                }
-            }
-            int promedio = suma / cantida;
+    for (int i = menor; i <= mayor; i++)
+    {
+        if (i % 2 != 0)
+        {
+            cantidad++;
+        }
+    }
 
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
+    return cantidad;
+}
 
+static int Suma(int numero1, int numero2)
+{
+    int suma = 0;
+    int menor = numero1;
+    int mayor = numero2;
+
+    if (numero2 < numero1)
+    {
+        menor = numero2;
+        mayor = numero1;
+    }
+
+    for (int i = menor; i <= mayor; i++)
+    {
+        suma = suma + i;
+    }
+
+    return suma;
+}
 
 }
-    }
 }
 
 
