@@ -10,61 +10,45 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
+      int numero;
+        int original;
+        int invertido = 0;
+        int cantidad = 0;
 
-    }
-        static void mostrar(int cantida)
+        Console.Write("ponga un numero entero: ");
+        numero = int.Parse(Console.ReadLine());
+
+        original = numero;
+
+        if (numero < 0)
         {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
+            numero = numero * -1;
+            original = numero;
+        }
 
-            for (int i = 1; i < cantida; i++)
+        do
+        {
+            cantidad++;
+            int digito = numero % 10;
+            invertido = invertido * 10 + digito;
+            numero = numero / 10;
+        }
+        while (numero > 0);
 
-            {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
+        Mostrar(cantidad, original, invertido);
+    }
 
-                if (i == 1)
-                {
-                    mayor = numero;
-                    menor = numero;
-                }
-                if (numero > mayor)
-                {
-                    mayor = numero;
-                }
-                if (numero < menor)
-                {
-                    menor = numero;
-                }
-             
+    static void Mostrar(int cantidad, int original, int invertido)
+    {
+        Console.WriteLine("la cantidad de digitos es: " + cantidad);
 
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
-                }
-            }
-            int promedio = suma / cantida;
-
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
-
-
-}
+        if (original == invertido)
+        {
+            Console.WriteLine("el numero es capicua");
+        }
+        else
+        {
+            Console.WriteLine("el numero no es capicua");
+        }
     }
 }
-
-
