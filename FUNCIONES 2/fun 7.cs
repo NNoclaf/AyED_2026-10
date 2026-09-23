@@ -10,61 +10,42 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
+   
+    int numero;
+    int divisor = 2;
+    int cantidad = 0;
 
+    static void Main()
+    {
+        Console.Write("ponga un numero entero positivo: ");
+        numero = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("factores primos:");
+        
+        Factores();
+
+        Total();
     }
-        static void mostrar(int cantida)
+
+    static void Factores()
+    {
+        while (numero > 1)
         {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
-
-            for (int i = 1; i < cantida; i++)
-
+            if (numero % divisor == 0)
             {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
-
-                if (i == 1)
-                {
-                    mayor = numero;
-                    menor = numero;
-                }
-                if (numero > mayor)
-                {
-                    mayor = numero;
-                }
-                if (numero < menor)
-                {
-                    menor = numero;
-                }
-             
-
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
-                }
+                Console.WriteLine(divisor);
+                numero = numero / divisor;  
+                cantidad++;                 
             }
-            int promedio = suma / cantida;
+            else
+            {
+                divisor++;
+            }
+        }
+    }
 
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
-
-
-}
+    static void Total()
+    {
+        Console.WriteLine("de factores primos hay: " + cantidad);
     }
 }
-
-
