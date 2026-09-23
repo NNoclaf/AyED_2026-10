@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace ConsoleApplication7
 {
 class Program
 {
@@ -14,8 +14,6 @@ class Program
     int numero;
     int divisor = 2;
     int cantidad = 0;
-
-    static void Main()
     {
         Console.Write("ponga un numero entero positivo: ");
         numero = int.Parse(Console.ReadLine());
