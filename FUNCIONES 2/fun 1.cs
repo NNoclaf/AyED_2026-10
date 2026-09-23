@@ -9,99 +9,83 @@ namespace ConsoleApplication1
 class Program
 {
     static void Main(string[] args)
-    {
-      static int suma = 0;
-static int mayor = 0;
-static int menor = 0;
-static int par = 0;
-static int impar = 0;
+    {   
+        int cantidad;
+        int numero;
+        int mayor = 0;
+        int menor = 0;
+        int suma = 0;
+        int par = 0;
+        int impar = 0;
 
-static void Main(string[] args)
-{
-    Console.Write("ponga la cantidad de numeros: ");
-    int cantidad = int.Parse(Console.ReadLine());
+        Console.Write("ponga la cantidad de numeros: ");
+        cantidad = int.Parse(Console.ReadLine());
 
-    for (int i = 1; i <= cantidad; i++)
-    {
-        Console.Write("ponga un numero: ");
-        int numero = int.Parse(Console.ReadLine());
+        for (int i = 1; i <= cantidad; i++)
+        {
+            Console.Write("ponga un numero: ");
+            numero = int.Parse(Console.ReadLine());
 
-        Suma(numero);
-        Mayor(numero, i);
-        Menor(numero, i);
-        Par(numero);
-        Impar(numero);
+            suma = suma + numero;
+
+            if (i == 1)
+            {
+                mayor = numero;
+                menor = numero;
+            }
+            else
+            {
+                if (numero > mayor)
+                {
+                    mayor = numero;
+                }
+
+                if (numero < menor)
+                {
+                    menor = numero;
+                }
+            }
+
+            if (numero % 2 == 0)
+            {
+                par++;
+            }
+            else
+            {
+                impar++;
+            }
+        }
+
+        Mayor(mayor);
+        Menor(menor);
+        Promedio(suma, cantidad);
+        Par(par);
+        Impar(impar);
     }
 
-    Promedio(cantidad);
-}
-
-static void Suma(int numero)
-{
-    suma = suma + numero;
-    Console.WriteLine("la suma da: " + suma);
-}
-
-static void Mayor(int numero, int i)
-{
-    if (i == 1)
+    static void Mayor(int mayor)
     {
-        mayor = numero;
+        Console.WriteLine("Mayor: " + mayor);
     }
 
-    if (numero > mayor)
+    static void Menor(int menor)
     {
-        mayor = numero;
+        Console.WriteLine("Menor: " + menor);
     }
 
-    Console.WriteLine("el mayor es: " + mayor);
-}
-
-static void Menor(int numero, int i)
-{
-    if (i == 1)
+    static void Promedio(int suma, int cantidad)
     {
-        menor = numero;
+        double promedio = (double)suma / cantidad;
+        Console.WriteLine("promedio: " + promedio);
     }
 
-    if (numero < menor)
+    static void Par(int par)
     {
-        menor = numero;
+        Console.WriteLine("la cantidad de pares: " + par);
     }
 
-    Console.WriteLine("el menor es: " + menor);
-}
-
-static void Par(int numero)
-{
-    if (numero % 2 == 0)
+    static void Impar(int impar)
     {
-        par++;
-    }
-
-    Console.WriteLine("la cantidad de pares son: " + par);
-}
-
-static void Impar(int numero)
-{
-    if (numero % 2 != 0)
-    {
-        impar++;
-    }
-
-    Console.WriteLine("la cantidad de impares son: " + impar);
-}
-
-static void Promedio(int cantidad)
-{
-    int promedio = suma / cantidad;
-
-    Console.WriteLine("el promedio es: " + promedio);
-}
-
-
-}
+        Console.WriteLine("la cantidad de impares: " + impar);
     }
 }
-
-
