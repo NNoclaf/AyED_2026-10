@@ -10,61 +10,52 @@ class Program
 {
     static void Main(string[] args)
     {
+        int cantidad;
+        int numero;
+        int mayor = 0;
+        int segumayor = 0;
+        bool primero = true;
+        bool segundo = false;
+
         Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
+        cantidad = int.Parse(Console.ReadLine());
 
-    }
-        static void mostrar(int cantida)
+        for (int i = 1; i <= cantidad; i++)
         {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
+            Console.Write("ponga un numero: ");
+            numero = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i < cantida; i++)
-
+            if (primero)
             {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
-
-                if (i == 1)
-                {
-                    mayor = numero;
-                    menor = numero;
-                }
+                mayor = numero;
+                primero = false;
+            }
+            else
+            {
                 if (numero > mayor)
                 {
+                    segumayor = mayor;
                     mayor = numero;
+                    segundo = true;
                 }
-                if (numero < menor)
+                else if (numero < mayor)
                 {
-                    menor = numero;
-                }
-             
-
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
+                    if (segundo == false || numero > segumayor)
+                    {
+                        segumayor = numero;
+                        segundo = true;
+                    }
                 }
             }
-            int promedio = suma / cantida;
+        }
 
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
-
-
-}
+        if (segundo)
+        {
+            Console.WriteLine("el segundo mas grande es: " + segumayor);
+        }
+        else
+        {
+            Console.WriteLine("no hay un segundo valor diferente al mayor");
+        }
     }
 }
-
-
