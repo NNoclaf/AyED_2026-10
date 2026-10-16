@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,63 +8,72 @@ namespace ConsoleApplication1
 {
 class Program
 {
-    static void Main(string[] args)
+static void Main(string[] args)
+{
+Console.Write("ponga la cantidad de numeros: ");
+int cantidad = int.Parse(Console.ReadLine());
+
+int[] numero = new int[cantidad];
+
+for (int i = 0; i < cantidad; i++)
+{
+    Console.Write("ponga un numero: ");
+    numero[i] = int.Parse(Console.ReadLine());
+}
+
+int[] veces = Calcu_frecu(numero);
+int Mayor_repe = Frecu_mayor(veces);
+
+resulta(numero, veces, Mayor_repe);
+}
+
+
+static int[] Calcu_frecu(int[] numero)
+{
+int[] veces = new int[numero.Length];
+
+for (int i = 0; i < numero.Length; i++)
+{
+    int c = 0;
+    for (int j = 0; j < numero.Length; j++)
     {
-        Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
-
-    }
-        static void mostrar(int cantida)
+        if (numero[i] == numero[j])
         {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
-
-            for (int i = 1; i < cantida; i++)
-
-            {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
-
-                if (i == 1)
-                {
-                    mayor = numero;
-                    menor = numero;
-                }
-                if (numero > mayor)
-                {
-                    mayor = numero;
-                }
-                if (numero < menor)
-                {
-                    menor = numero;
-                }
-             
-
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
-                }
-            }
-            int promedio = suma / cantida;
-
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
-
-
+            c++;
+        }
+    }
+    veces[i] = c;
 }
+
+return veces;
+}
+
+
+static int Frecu_mayor(int[] veces)
+{
+int mayor = 0;
+for (int i = 0; i < veces.Length; i++)
+{
+    if (veces[i] > mayor)
+    {
+        mayor = veces[i];
     }
 }
+return mayor;
+}
 
 
+static void resulta(int[] numero, int[] veces, int Mayor_repe)
+{
+Console.WriteLine("el numero que mas se repitio " + Mayor_repe + " veces):");
+
+for (int i = 0; i < numero.Length; i++)
+{
+    if (veces[i] == Mayor_repe)
+    {
+        Console.WriteLine(numero[i]);
+    }
+}
+}
+}
+}
