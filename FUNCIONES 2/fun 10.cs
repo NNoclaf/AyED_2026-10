@@ -11,42 +11,47 @@ class Program
     static void Main(string[] args)
     {
        Console.Write("ponga un numero entero positivo: ");
-            int numero = int.Parse(Console.ReadLine());
+            int objetivo = int.Parse(Console.ReadLine());
 
             int encontro = 0;
+            int i = 1;
 
-            for (int i = 1; i < numero; i++)
+            while (i < objetivo)
             {
-                int Valida = Verifica_suma(i, numero);
+                int fin = Fin(i, objetivo);
 
-                if (Valida == 1)
+                if (fin > 0)
                 {
-
-                    Console.Write(numero + " = ");
-                    Mostrar(i, numero);
+                    Console.Write(objetivo + " = ");
+                    Suma(i, fin);
                     Console.WriteLine();
+
                     encontro = 1;
                 }
+
+                i = i + 1;
             }
 
             if (encontro == 0)
             {
-                Console.WriteLine("no se representa suma de numeros consecutivo");
+                Console.WriteLine("No puede representar una suma de numeros consecutivo");
             }
         }
 
-        static int Verifica_suma(int inicio, int objetivo)
+        static int Fin(int inicio, int objetivo)
         {
             int suma = 0;
+            int numero = inicio;
 
-            for (int j = inicio; suma < objetivo; j++)
+            while (suma < objetivo)
             {
-                suma = suma + j;
+                suma = suma + numero;
+                numero = numero + 1;
             }
 
             if (suma == objetivo)
             {
-                return 1;
+                return numero - 1;
             }
             else
             {
@@ -54,21 +59,21 @@ class Program
             }
         }
 
-        static void Mostrar(int inicio, int objetivo)
+        static void Suma(int inicio, int fin)
         {
-            int suma = 0;
+            int numero = inicio;
 
-            for (int j = inicio; suma < objetivo; j++)
+            while (numero <= fin)
             {
-                suma = suma + j;
-                Console.Write(j);
+                Console.Write(numero);
 
-                if (suma < objetivo)
+                if (numero < fin)
                 {
                     Console.Write(" + ");
                 }
+
+                numero = numero + 1;
             }
         }
     }
 }
-
