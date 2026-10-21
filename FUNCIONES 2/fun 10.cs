@@ -10,61 +10,65 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("ponga la cantidad de numeros: ");
-        int cantida = int.Parse(Console.ReadLine());
-        mostrar(cantida);
+       Console.Write("ponga un numero entero positivo: ");
+            int numero = int.Parse(Console.ReadLine());
 
-    }
-        static void mostrar(int cantida)
-        {
-            int suma = 0;
-            int menor = 0;
-            int mayor = 0;
-            int par = 0;
-            int impar = 0;
+            int encontro = 0;
 
-            for (int i = 1; i < cantida; i++)
-
+            for (int i = 1; i < numero; i++)
             {
-                Console.Write("ponga un numero: ");
-                int numero = int.Parse(Console.ReadLine());
+                int Valida = Verifica_suma(i, numero);
 
-                if (i == 1)
+                if (Valida == 1)
                 {
-                    mayor = numero;
-                    menor = numero;
-                }
-                if (numero > mayor)
-                {
-                    mayor = numero;
-                }
-                if (numero < menor)
-                {
-                    menor = numero;
-                }
-             
 
-                if (numero % 2 == 0)
-                {
-                    par++;
-                }
-                else
-                {
-                    impar++;
+                    Console.Write(numero + " = ");
+                    Mostrar(i, numero);
+                    Console.WriteLine();
+                    encontro = 1;
                 }
             }
-            int promedio = suma / cantida;
 
-            Console.WriteLine(" el numero mayor es: " + mayor);
-            Console.WriteLine(" el menor numero es : " + menor);
-            Console.WriteLine(" los numeros pares son: " + par);
-            Console.WriteLine(" los numros impar son: " + impar);
-            Console.WriteLine(" el promediode todo es: " + promedio);
-      
+            if (encontro == 0)
+            {
+                Console.WriteLine("no se representa suma de numeros consecutivo");
+            }
+        }
 
+        static int Verifica_suma(int inicio, int objetivo)
+        {
+            int suma = 0;
 
-}
+            for (int j = inicio; suma < objetivo; j++)
+            {
+                suma = suma + j;
+            }
+
+            if (suma == objetivo)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        static void Mostrar(int inicio, int objetivo)
+        {
+            int suma = 0;
+
+            for (int j = inicio; suma < objetivo; j++)
+            {
+                suma = suma + j;
+                Console.Write(j);
+
+                if (suma < objetivo)
+                {
+                    Console.Write(" + ");
+                }
+            }
+        }
     }
 }
-
 
